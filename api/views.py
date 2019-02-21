@@ -21,7 +21,7 @@ class ItemListView(ListAPIView):
 	queryset = Item.objects.all()
 	serializer_class = ItemListSerializer
 	filter_backends = [OrderingFilter, SearchFilter,]
-	search_fields = '__all__' # TODO test this if it'll work like forms
+	search_fields = ['name', 'description',]
 	permission_classes = [AllowAny,]
 
 
