@@ -40,9 +40,12 @@ class ItemListSerializer(serializers.ModelSerializer):
 			]
 
 	def get_total_favs(self, obj):
-		favs = obj.items.all()
-		favs_ser = FavItemSerializer(favs, many = True)
-		return len(favs_ser.data)
+		# favs = obj.items.all()
+		# favs_ser = FavItemSerializer(favs, many = True)
+		# return len(favs_ser.data)
+
+		# better count...
+		return obj.items.count()
 
 
 class ItemDetailSerializer(serializers.ModelSerializer):
