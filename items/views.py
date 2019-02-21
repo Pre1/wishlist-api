@@ -8,6 +8,7 @@ from django.http import JsonResponse
 def item_list(request):
     items = Item.objects.all()
     query = request.GET.get('q')
+    favorite_list = []
     if query:
         items = items.filter(name__contains=query)
     if request.user.is_authenticated:
